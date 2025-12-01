@@ -76,11 +76,8 @@ def python_mse(actual, predicted):
 def python_binarize(data, lookback):
     """Binariza dados (1 se subiu, 0 se desceu)"""
     result = []
-    for i in range(len(data)):
-        if i == 0:
-            result.append(0)
-        else:
-            result.append(1 if data[i] > data[i-1] else 0)
+    for i in range(1, len(data)):
+        result.append(1 if data[i] > data[i-1] else 0)
     return result
 
 def python_bayes_probability(binary_data, lookback):
